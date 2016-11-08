@@ -5,3 +5,5 @@ Rules are the ordered pair of symbol strings, with a left hand side and a right 
 total ordering and database is the simply collection of symbols. The interpreter scans the LHS of  each rule until any match
 is found in the database. Symbols matched in the data base  are replaced by thos in the RHS in the rule and then scanning either
 continues with the next rule or start from first.
+
+link :  http://aitopics.org/topic/rule-based-reasoning
