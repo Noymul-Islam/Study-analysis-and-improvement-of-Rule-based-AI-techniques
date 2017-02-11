@@ -1,4 +1,7 @@
 import io
+import  math
+from textblob import TextBlob as tb
+
 def unique_WordInFinalList(list,final_list):
 	i=0
 	while(i<len(list)):
@@ -28,6 +31,26 @@ def unique_wordlist(input_file,list):
       
     return   
 
+
+def tf(word, blob):
+
+          return blob.words.count(word) / len(blob.words)
+
+def n_containing(word, bloblist):
+    
+          return sum(1 for blob in bloblist if word in blob.words)
+
+def idf(word, bloblist):
+    
+         return math.log(len(bloblist) / (1 + n_containing(word, bloblist)))
+
+def tfidf(word, blob, bloblist):
+    
+         return tf(word, blob) * idf(word, bloblist)
+
+def hello(str):
+          print('Hello')  
+
 document=['আসল(Come).txt','আসল(Real).txt','উত্তর(answer).txt',
            'উত্তর(north).txt','কর(Do).txt','কর(tax).txt',
            'কাল(time).txt','কাল(black).txt','গ্রাম(weight).txt',
@@ -52,6 +75,14 @@ while(i<len(document)):
       i=i+1
 
 unique_WordInFinalList(list,final_list)
+vector=[[None]*2252]*42
+
+i=0;
+while(i<len(document)):
+       
+	  i=i+1
+
+
 
 #for item in document:
 #	with io.open(item,'r',encoding='utf-8') as f:
